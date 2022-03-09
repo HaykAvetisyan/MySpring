@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Add Company</title>
+</head>
+<body>
+<div style="display: flex; justify-content: space-around">
+
+    <form action="/saveCompany" method="post">
+        <h1>Add Company:</h1><br>
+        name: <input style="margin-top: auto" type="text" name="name" required> <br>
+        size: <input style="margin-top: auto" type="number" name="size" required> <br>
+        address: <input style="margin-top: auto" type="text" name="address" required> <br>
+
+        <input style="margin-top: auto" type="submit" value="Add Company">
+
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Employees menu</title>
+</head>
+<body>
+<h2>All Employees:</h2>
+
+<table style="background-color: white">
+    <thead>
+    <tr style="border-style: solid">
+        <th style="border-style: solid; border-color: #0062cc"><h3>Name</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Surname</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Salary</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>position</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>email</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>phone number</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>company</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Profile pic</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>delete</h3></th>
+
+    </tr>
+    <tr style="border-style: solid" th:each=" e: ${all}">
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getName()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getSurname()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getSalary()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getPosition()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getEmail()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getPhoneNumber()}"><h4></h4>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${e.getCompany().getName()}"><h4></h4>
+        <td> <img th:src = "@{/upload/${e.getPictureUrl()}}" width="50" /> </td>
+        <td style="border-style: solid; border-color: #0062cc"> <a th:href="@{/deleteEmployee(id=${e.id})}"><h4>delete</h4> </a>
+        </td>
+<!--        (name = ${e.getPictureUrl()})-->
+
+    </tr>
+    </thead>
+</table>
+<a href="/addEmployee">Add Employee</a>
+
+<a href="/">Home</a>
+</body>
+</html>

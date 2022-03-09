@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Companies menu</title>
+</head>
+<body>
+<h2>All Companies:</h2>
+
+<table style="background-color: white">
+    <thead>
+    <tr style="border-style: solid">
+        <th style="border-style: solid; border-color: #0062cc"><h3>Name</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Address</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Size</h3></th>
+        <th style="border-style: solid; border-color: #0062cc"><h3>Delete</h3></th>
+    </tr>
+    <tr style="border-style: solid" th:each=" c: ${allComp}">
+        <td style="border-style: solid; border-color: #0062cc" th:text="${c.getName()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${c.getAddress()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc" th:text="${c.getSize()}"><h4></h4>
+        </td>
+        <td style="border-style: solid; border-color: #0062cc"> <a th:href="@{/deleteCompany(id=${c.id})}"><h4>delete</h4> </a>
+        </td>
+    </tr>
+    </thead>
+</table>
+<a href="/addCompany">Add Company</a>
+<a href="/">Home</a>
+</body>
+</html>
